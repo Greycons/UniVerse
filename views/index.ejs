@@ -1,0 +1,41 @@
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to College Web App</h1>
+    <p class="lead">Your one-stop platform for college events, clubs, and activities.</p>
+    <hr class="my-4">
+    <p>Join clubs, participate in events, and connect with your college community.</p>
+    <% if (!user) { %>
+        <a class="btn btn-primary btn-lg" href="/signup" role="button">Get Started</a>
+    <% } else { %>
+        <a class="btn btn-primary btn-lg" href="/events" role="button">Browse Events</a>
+    <% } %>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Events</h5>
+                <p class="card-text">Discover and participate in various college events.</p>
+                <a href="/events" class="btn btn-outline-primary">View Events</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Clubs</h5>
+                <p class="card-text">Join clubs and connect with like-minded students.</p>
+                <a href="/clubs" class="btn btn-outline-primary">Browse Clubs</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Activities</h5>
+                <p class="card-text">Stay updated with college activities and announcements.</p>
+                <a href="/activities" class="btn btn-outline-primary">View Activities</a>
+            </div>
+        </div>
+    </div>
+</div>

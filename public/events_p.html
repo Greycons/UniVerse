@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EVENTS NMIMS</title>
+        <style>
+            body {
+                background-color: bisque; 
+                margin: 0;
+                padding: 0;
+                font-family: 'Open Sans', sans-serif; 
+            }
+            .navbar {
+                font-size: small;
+                background-color: #333;
+                overflow: hidden;
+            }
+            .navbar ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+            }
+            .navbar li {
+                float: left;
+                border-radius: 5px;
+                width: 14.16%;
+                border-right: 1px solid white;
+            }
+            .navbar li:last-child {
+                border-right: none;
+            }
+            .navbar a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 18px;
+                text-decoration: none;
+            }
+            .navbar li a:hover {
+                background-color: #555;
+                transition: background-color 0.3s ease;
+            }
+            .info {
+                margin-top: 50px;
+                text-align: center;
+                color: #333;
+                font-family: 'Open Sans', sans-serif;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            }
+            .images {
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                margin-top: 50px;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.6); 
+                border-radius: 10px; 
+            }
+            .images img {
+                width: 350px;
+                height: 260px;
+                border: 4px solid rgba(255, 0, 0, 0.5); 
+                border-radius: 10px; 
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                margin: 0 20px;
+            }
+            .images img:hover {
+                transform: scale(1.05);
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            }
+            .nmims {
+                text-align: center;
+                justify-content: center;
+                display: flex;
+                margin-top: 0;
+                background-blend-mode: color-burn;
+            }
+            .info2 {
+                margin: 10px;
+                padding: 20px;
+                color: #333;
+                font-family: 'Open Sans', sans-serif;
+                justify-content: center;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            }
+            .vid {
+                justify-content: center;
+                display: flex;
+                margin: auto;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.6); 
+                border-radius: 10px; 
+            }
+            .vid video {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: box-shadow 0.3s ease;
+                border: 4px solid rgba(255, 0, 0, 0.5); 
+                border-radius: 10px; 
+            }
+            .vid video:hover {
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            }
+            .ambiora {
+                background-color: rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                border-radius: 10px;
+                margin: 50px auto;
+                max-width: 800px;
+            }
+            .links {
+                margin: 10px;
+                padding: 8px 16px;
+                color: #fff;
+                font-size: 16px;
+                font-style: normal;
+                text-decoration: none;
+                font-family: 'Open Sans', sans-serif;
+                font-weight: bold;
+                justify-content: center;
+                background: linear-gradient(to right, #8b0000, #b22222);
+                border-radius: 5px;
+                transition: background 0.3s ease;
+                display: inline-block;
+            }
+            .links:hover {
+                background: linear-gradient(to right, #b22222, #8b0000);
+            }
+            .form-links {
+                text-align: center;
+                margin-top: 10px;
+                padding: 10px;
+                background-color: rgba(255, 255, 255, 0.6); 
+                border-radius: 5px; 
+            }
+            .empty-space {
+                background-color: rgba(255, 255, 255, 0.6); 
+                padding: 20px;
+                border-radius: 10px; 
+                margin: 50px auto;
+                max-width: 800px;
+                position: relative; 
+            }
+            .empty-space::before {
+                content: "🎨"; 
+                font-size: 48px;
+                position: absolute;
+                top: -30px;
+                left: -30px;
+            }
+            .empty-space::after {
+                content: "✨";
+                font-size: 36px;
+                position: absolute;
+                bottom: -20px;
+                right: -20px;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <nav>
+                <header>
+                    <div class="navbar">
+                        <ul>
+                            <li style="background-color: rgb(66, 29, 68);"><a href="http://127.0.0.1:5500/form.html"><img src="images/washing-clothes.png" height="25" width="25"><br>PICK-UP<BR>LAUNDRY</a></li>
+                            <li style="background-color: rgb(9, 59, 32);"><a href="#"><img src="images/vegan-food.png" height="25" width="25"><BR>PRE-ORDER<BR>CANTEEN</a></li>
+                            <li style="background-color: rgb(184, 121, 44);"><a href="http://127.0.0.1:5500/events.html"><img src="images/class.png" height="25" width="25"><BR>JOIN CLUBS<BR>AND OTHERS</a></li>
+                            <li style="background-color: rgb(66, 29, 68);"><a href="http://127.0.0.1:5500/form.html"><img src="images/admin.png" height="25" width="25"><BR>ALUMINI <BR>CONNECT</a></li>
+                            <li style="background-color: rgb(18, 36, 66);"><a href="http://127.0.0.1:5500/permission.html"><img src="images/admin.png" height="25" width="25"><BR>ISSUE<BR>PERMISSION</a></li>
+                            <li style="background-color: rgb(184, 121, 44);"><a href="http://127.0.0.1:5500/events.html"><img src="images/like.png" height="25" width="25"><BR><BR>FEEDBACK</a></li>
+                            <li style="background-color: rgb(202, 202, 202); color: #777;"><a href="http://127.0.0.1:5500/signup.html"><img src="images/NM.png" height="25" width="40"><BR><BR>SIGN OUT</a></li>
+                        </ul>
+                    </div>
+                    <div class="nmims">
+                        <img src="images/NMIMS.png" alt="nmims logo" width="400" height="220">
+                    </div>
+                </header>
+            </nav>
+            <div class="empty-space">
+                <div class="form-links">
+                    <a href="form_for_choice.HTML" class="links" onclick="alert('Hurry, fill it before time runs out')">Hurry, fill it before time runs out</a>
+                </div>
+            </div>
+            
+            <div class="info">
+                <h1>Here are some images and videos of our previous Protsahan event</h1>
+            </div>
+        </section>
+        <center>
+            <section>
+                <div class="images">
+                    <img src="images/prosahan.jpeg" width="350px" height="260px">
+                    <div class="vid">
+                        <video controls width="350" height="260">
+                            <source src="prot-vid.mp4">
+                        </video>
+                    </div>
+                    <img src="images/prot-3.jpeg" width="350px" height="260px">
+                </div>
+            </section>
+        </center>
+        <div class="empty-space"></div>
+        <section class="ambiora">
+            <center>
+                <div class="info2">
+                    <h1>Some of our Ambiora event highlights</h1>
+                </div>
+            </center>
+            <div>
+                <div class="vid">
+                    <video controls width="350" height="260">
+                        <source src="amb.mp4">
+                    </video>
+                </div>
+                <div class="vid">
+                    <video controls width="350" height="260">
+                        <source src="amb2.mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

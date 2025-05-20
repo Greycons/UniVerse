@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="issuePermissionApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Issue Permission</title>
+    <script src="js/https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            margin: 20px;
+            background-color: bisque;
+        }
+        #box {
+            background-color: white;
+            margin: 30px;
+            padding: 20px;
+            border-radius: 25px;
+        }
+        img {
+            height: 150px;
+            width: 250px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body ng-controller="PermissionController">
+    <div id="box">
+        <h1>Issue Permission For Events or Activities</h1>
+        <img src="images/audi.jpg" alt="auditorium"><img src="images/musicr.jpg"><img src="images/amphi.png"><img src="images/seminar.png"><img src="images/sl.png">
+        <br>Enter info and check availability of the venues.
+        <br><br>
+        <form id="permissionForm" action="/savePermission" method="post">
+
+            Venue:<select name="venues" id="venues" ng-model="venue" ng-required="true">
+                <option value="" disabled selected hidden>select</option>
+                <option value="studentlounge">Student lounge</option>
+                <option value="auditorium">Auditorium</option>
+                <option value="seminarhall">Seminar hall</option>
+                <option value="auditorium">Dance room</option>
+                <option value="seminarhall">Music room</option>
+                <option value="auditorium">Outside A wing</option>
+                <option value="seminarhall">Outside b wing</option>
+            </select><BR><BR>
+            Club:<select name="club" id="club">
+                <option value="" disabled selected hidden>select</option>
+                <option value="GDSC">GDSC</option>
+                <option value="UASNMIMS">UASNMIMS</option>
+                <option value="NMMUN">NMMUN</option>
+                <option value="SOBUS">SOBUS</option>
+                <option value="INVENTIA">INVENTIA</option>
+                <option value="APP DEV">APP DEV</option>
+                <option value="TWD">TWD</option>
+                <option value="BL/DD">BL/DD</option>
+                <option value="ATRANGI">ATRANGI</option>
+                <option value="RANG">RANG</option>
+</select>
+            <br><br>Date: <input type="date" name="date" ng-model="date" ng-required="true" id="date">
+            <br><br>Duration: from - <input type="time" name="time1" ng-model="time1" ng-required="true" id="time1"> to - <input type="time" name="time2" id="time2" ng-model="time2" ng-required="true">
+            <br><br>Purpose <input type="text" name="purpose" ng-model="purpose" ng-required="true" id="purpose">
+            
+            <br><Br>
+            <pre>
+                <input type="checkbox" ng-model="agree" ng-required="true">By checking the box, you confirm your understanding and agreement to the terms outlined for the usage of the specified venue. 
+                This includes adherence to venue regulations, responsibility for any damages incurred, and ensuring cleanliness and proper maintenance 
+                throughout your use. Failure to comply with these terms may result in the withdrawal of permission for future use. Please ensure that 
+                all information provided is accurate before proceeding.
+            </pre>
+            
+            <center><input type="submit" value="Check Availability" id="btn"></button></center>
+        </form>
+        
+    </div>
+    <script>
+        
+        function submitForm(event) {
+    event.preventDefault(); 
+    
+    const venue = document.getElementById("venues").value;
+    const club = document.getElementById("club").value;
+    const time1 = document.getElementById("fromD").value;
+    const time2 = document.getElementById("toD").value;
+    const purpose = document.getElementById("purp").value;
+    const date = document.getElementById("date").value;
+ 
+    const formData = {
+        venue,
+        club,
+        time1,
+        time2,
+        purpose,
+        date
+    };
+
+    axios.post('/savePermission', formData)
+        .then(response => {
+            console.log(response.data);
+            
+        })
+        .catch(error => {
+            
+            console.error('Error submitting form:', error);
+        });
+}
+
+    </script>
+</body>
+</html>

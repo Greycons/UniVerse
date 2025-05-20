@@ -1,0 +1,64 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+    <h1 class="mb-4">College Clubs</h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search clubs..." id="clubSearch">
+                <button class="btn btn-outline-secondary" type="button">Search</button>
+            </div>
+        </div>
+        <div class="col-md-6 text-end">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createClubModal">
+                Create New Club
+            </button>
+        </div>
+    </div>
+
+    <div class="row" id="clubsList">
+        <!-- Club cards will be loaded dynamically -->
+    </div>
+</div>
+
+<!-- Create Club Modal -->
+<div class="modal fade" id="createClubModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create New Club</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="createClubForm">
+                    <div class="mb-3">
+                        <label for="clubName" class="form-label">Club Name</label>
+                        <input type="text" class="form-control" id="clubName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="clubDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="clubDescription" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="clubCategory" class="form-label">Category</label>
+                        <select class="form-select" id="clubCategory" required>
+                            <option value="">Select a category</option>
+                            <option value="academic">Academic</option>
+                            <option value="sports">Sports</option>
+                            <option value="cultural">Cultural</option>
+                            <option value="technical">Technical</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="createClubBtn">Create Club</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %> 

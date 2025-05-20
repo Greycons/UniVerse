@@ -1,0 +1,58 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Laundry Service</h1>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Schedule Pickup</h5>
+                    <form action="/api/laundry/schedule" method="POST" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="pickupDate" class="form-label">Pickup Date</label>
+                            <input type="date" class="form-control" id="pickupDate" name="pickupDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pickupTime" class="form-label">Pickup Time</label>
+                            <input type="time" class="form-control" id="pickupTime" name="pickupTime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="items" class="form-label">Number of Items</label>
+                            <input type="number" class="form-control" id="items" name="items" min="1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="instructions" class="form-label">Special Instructions</label>
+                            <textarea class="form-control" id="instructions" name="instructions" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Schedule Pickup</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Service Information</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Service Hours:</strong> 8:00 AM - 8:00 PM
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Turnaround Time:</strong> 24-48 hours
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Price per Item:</strong> $2.00
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Contact:</strong> (123) 456-7890
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %> 

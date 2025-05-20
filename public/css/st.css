@@ -1,0 +1,28 @@
+body {
+  background-color: bisque;
+  margin: 0;
+  padding: 0;
+}
+
+#box{
+  background-color: white;
+  margin-left: 60;
+  margin-top: 60;
+  margin-bottom: 60;
+  margin-right: 60;
+  padding: 40;
+  padding-left: 250;
+  box-shadow: 10px 10px 38px rgb(61, 54, 54), -10px -10px 38px rgb(61, 54, 54);
+
+}
+
+.zoom {
+  transition: transform 0.3s; /* Add a smooth transition effect */
+}
+
+.zoom:hover {
+  transform: scale(1.1); /* Scale the element to 1.1 times its original size on hover */
+}
+
+
+

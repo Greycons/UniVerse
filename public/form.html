@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(b.jpg);
+            background-size: cover;
+            margin-bottom: 180px;
+            margin-top: -35px;
+        }
+        form {
+            margin-top: -20px;
+            width: 55%;
+            font-size: 20px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 black;
+            background: linear-gradient(45deg,rgb(194, 176, 129),rgb(202, 189, 125));
+        }
+        .form-group label {
+            font-size: larger;
+            text-shadow: 2px rgb(252, 249, 249) ;
+            font-family:"Brush Script MT", cursive;
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: rgb(143, 143, 143);
+            display: block;
+            margin-bottom: 10px;
+            color: rgb(0, 0, 0);
+        }
+        .form-group textarea {
+            width: 50%;
+            height: 60px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: rgb(78, 94, 44);
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <fieldset style="margin: auto; text-align: center; border: none; color: rgb(104, 100, 38);">
+        <legend><b><h2 style="text-decoration: underline black; text-shadow: 6px rgb(65, 57, 43); margin: 100px 2px;">SUBMIT FAQ &#128172; &#128172;</h2></legend></b>
+    <form action="/submit_feedback" method="post" onsubmit="return validateForm()" style="opacity: 98% ;text-align: justify; text-decoration:none; text-shadow: none; border: 10px white solid;"><ul type="circle" style="color: white">
+        <div class="form-group">
+            <li><label id="problem-label">What type of problem are you facing?</label></li>
+            <input type="radio" id="job" name="problem" value="job">
+            <label for="job" style="display: inline-block;">Job related problem</label>
+            <input type="radio" id="subject" name="problem" value="subject">
+            <label id="subject" name="problem" style="display: inline-block;">College subject related problem</label><br>
+            <span id="problem-error" class="error-message"></span>
+        </div><br>
+        <hr length="full">
+        <div class="form-group"><br>
+            <li><label for="cause">What made you think you have this problem ?</label></li>
+            <textarea id="cause" name="cause"></textarea>
+            <span id="cause-error" class="error-message"></span>
+        </div>
+        <div class="form-group">
+            <li><label for="solution">Why particular alumini ?</label></li>
+            <textarea id="solution" name="solution"></textarea>
+            <span id="solution-error" class="error-message"></span>
+        </div>
+        <div class="form-group">
+            <li><label for="other">Any other problems you wanna discuss ?(optional)</label></li>
+            <textarea id="other" name="other"></textarea>
+        </div><br></ul>
+        <input type="submit" value="Submit">
+    </form>
+</fieldset>
+
+<script>
+    function validateForm() {
+        var problem = document.querySelector('input[name="problem"]:checked');
+        var cause = document.getElementById('cause').value;
+        var solution = document.getElementById('solution').value;
+
+        var problemError = document.getElementById('problem-error');
+        var causeError = document.getElementById('cause-error');
+        var solutionError = document.getElementById('solution-error');
+
+        var isValid = true;
+
+        problemError.textContent = '';
+        causeError.textContent = '';
+        solutionError.textContent = '';
+        if (!problem) {
+            problemError.textContent = 'Please select a problem type';
+            isValid = false;
+        }
+
+        if (cause.trim() === '') {
+            causeError.textContent = 'Please provide a cause for the problem';
+            isValid = false;
+        }
+
+        if (solution.trim() === '') {
+            solutionError.textContent = 'Please provide a solution';
+            isValid = false;
+        }
+
+        return isValid;
+    }
+</script>
+</body>
+</html>

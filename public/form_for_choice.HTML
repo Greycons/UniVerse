@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <script src="js/https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .form {
+            min-height: 100vh;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            width: 100%;
+            background-image: linear-gradient(rgba(1, 1, 75, 0.5), rgba(73, 73, 115, 0.5)), url('flat-lay-clipboards-with-copy-space.jpg'); /* Adjust opacity by changing rgba values */
+            color: aliceblue;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-decoration: wavy;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .legend {
+            font-size: 40px;
+            font-family: 'Times New Roman', Times, serif;
+            font-style: bold;
+            text-align: center;
+        }
+
+        .submit {
+            border-radius: 2px;
+            color: bisque;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body ng-controller="FormController">
+<section class="form">
+    <center>
+        <fieldset>
+            <legend class="legend">Register Form</legend><br>
+            <form name="myForm" action="/submit-form" method="POST" ng-submit="submitForm(myForm.$valid)" novalidate>
+                <br><br>
+                <label>
+                    Choices to made:
+                    <input type="text" ng-model="formData.choice" name="choice" placeholder="Protsahan/Ambiora">
+                    <span class="error-message" ng-show="!formData.choice">Please enter at least one organization</span>
+                </label><br><br>                
+                <label>
+                    Name:
+                    <input type="text" ng-model="formData.name" name="name" pattern="^[a-zA-Z\s]+$" required>
+                    <span class="error-message" ng-show="myForm.name.$error.required || myForm.name.$error.pattern">Name is required and should only contain letters and spaces</span>
+                </label><br><br><br>
+               
+                <label>
+                    Branch:
+                    <select ng-model="formData.branch" name="branch" required>
+                        <option value="">Select your Branch</option>
+                        <option value="B-TECH">B-TECH</option>
+                        <option value="MBA-TEACH">MBA-TEACH</option>
+                        <option value="PHARMA">PHARMA</option>
+                        <option value="AGRICULTURE">AGRICULTURE</option>
+                    </select>
+                    <span class="error-message" ng-show="myForm.branch.$error.required">Branch is required</span>
+                </label>
+                <br><br><br>
+                <label>
+                    Year:
+                    <select ng-model="formData.yearl" name="yearl" required>
+                        <option value="">Select year</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <span class="error-message" ng-show="myForm.yearl.$error.required">Year is required</span>
+                </label><br><br><br>
+                <label>
+                    Phone Number:
+                    <input type="tel" ng-model="formData.phone" name="phone" pattern="^[0-9]{10}$" required>
+                    <span class="error-message" ng-show="myForm.phone.$error.required || myForm.phone.$error.pattern">Phone number is required and should be 10 digits long</span>
+                </label><br><br><br>
+                <label>
+                    Interests:
+                    <textarea ng-model="formData.interest" name="interest" minlength="10" maxlength="120" required></textarea>
+                    <span class="error-message" ng-show="myForm.interest.$error.required || myForm.interest.$error.minlength || myForm.interest.$error.maxlength">Interests are required, must be between 10 and 120 characters</span>
+                </label><br><br>
+                <label>
+                    Email to recieve call:
+                    <input type="email" ng-model="formData.email" name="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+                    <span class="error-message" ng-show="myForm.email.$error.required || myForm.email.$error.pattern">Email is required and should be a valid email address</span>
+                </label><br><br><br>
+                <label>
+                <input class="submit" type="submit" value="Submit">
+                <br><br>
+            </form>
+        </fieldset>
+    </center>
+</section>
+
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('FormController', function ($scope, $http) {
+        $scope.formData = {};
+
+        $scope.submitForm = function (isValid) {
+            if (isValid) {
+                $http.post('/submit-form', $scope.formData)
+                    .then(function (response) {
+                        console.log('Form submitted successfully');
+                        $scope.formData = {}; 
+                        $scope.myForm.$setPristine(); 
+                    })
+                    .catch(function (error) {
+                        console.error('Error submitting form:', error);
+                    });
+            }
+        };
+    });
+</script>
+</body>
+</html>

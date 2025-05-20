@@ -1,0 +1,434 @@
+
+<html>
+<head>
+    <title>Pre-order food</title>
+    <style>
+        img {
+            height: 370px;
+            width: auto;
+            position: absolute;
+            right: 80px;
+            top: 60px;
+            border-radius: 25px;
+        }
+        body {
+            margin: 20px;
+            background-color: bisque;
+        }
+        p {
+            margin: 0;
+        }
+        h1 {
+            margin: 0;
+        }
+        #box {
+            background-color: white;
+            margin: 30px;
+            padding: 20px;
+            border-radius: 25px;
+        }
+        .bt {
+            width: 50px;
+        }
+        #placement {
+            position: absolute;
+            right: 150px;
+            top: 590px;
+        }
+    </style>
+</head>
+<body ng-app="canteenApp" ng-controller="CanteenController">
+<div id="box">
+    <h1 style="font-size:70px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        PRE-ORDER<br> FOOD <br> FROM <br> CANTEEN !
+    </h1>
+    <p><br>
+        Cut the wait and savor every moment with our preorder system!<br> Experience the ultimate convenience by selecting your favorite meals from our<br> menu ahead of time.
+        Preorder now and elevate your meal experience with us!
+    </p>
+    <br><br>
+    <img src="images/canteen.jpg">
+    <center>
+        <b style="font-size: 50px;">ORDER NOW!</b>
+    </center>
+    <br>Select your favs from our menu!<br><br>
+    <table>
+        <tr>
+            <td><b>Lunch</b></td>
+        </tr>
+        <tr>
+            <td>Lunch (full)</button></td>
+            <td><button onclick="incrementCount('lunchFull')">+</button></td>
+            <td><span id="lunchFullCount">0</span></td>
+            <td>......................................... 50</td>
+        </tr>
+        <tr>
+            <td>Lunch (half)</button></td>
+            <td><button onclick="incrementCount('lunchHalf')">+</button></td>
+            <td><span id="lunchHalfCount">0</span></td>
+            <td>......................................... 35</td>
+        </tr>
+        <tr>
+            <td>Chinese Combo Lunch</button></td>
+            <td><button onclick="incrementCount('chineseCombo')">+</button></td>
+            <td><span id="chineseComboCount">0</span></td>
+            <td>......................................... 100</td>
+        </tr>
+        <tr>
+            <td>Puri Bhaji</button></td>
+            <td><button onclick="incrementCount('puriBhaji')">+</button></td>
+            <td><span id="puriBhajiCount">0</span></td>
+            <td>......................................... 60</td>
+        </tr>
+        <tr>
+            <td>Dal Rice</button></td>
+            <td><button onclick="incrementCount('dalRice')">+</button></td>
+            <td><span id="dalRiceCount">0</span></td>
+            <td>......................................... 50</td>
+        </tr>
+        <tr>
+            <td><b>Milk Shakes</b></td>
+        </tr>
+        <tr>
+            <td>Cold Coffee</button></td>
+            <td><button onclick="incrementCount('coldCoffee')">+</button></td>
+            <td><span id="coldCoffeeCount">0</span></td>
+            <td>......................................... 60</td>
+        </tr>
+        <tr>
+            <td>Oreo Shake</button></td>
+            <td><button onclick="incrementCount('oreoShake')">+</button></td>
+            <td><span id="oreoShakeCount">0</span></td>
+            <td>......................................... 60</td>
+        </tr>
+        <tr>
+            <td>Chikku Shake</button></td>
+            <td><button onclick="incrementCount('chikkuShake')">+</button></td>
+            <td><span id="chikkuShakeCount">0</span></td>
+            <td>......................................... 50</td>
+        </tr>
+        <tr>
+            <td>Mango Shake</button></td>
+            <td><button onclick="incrementCount('mangoShake')">+</button></td>
+            <td><span id="mangoShakeCount">0</span></td>
+            <td>......................................... 75</td>
+        </tr>
+        <tr>
+            <td><b>Hot Beverages</b></td>
+        </tr>
+        <tr>
+            <td>Coffee</button></td>
+            <td><button onclick="incrementCount('coffee')">+</button></td>
+            <td><span id="coffeeCount">0</span></td>
+            <td>......................................... 15</td>
+        </tr>
+        <tr>
+            <td>Tea</button></td>
+            <td><button onclick="incrementCount('tea')">+</button></td>
+            <td><span id="teaCount">0</span></td>
+            <td>......................................... 10</td>
+        </tr>
+        <tr>
+            <td>Special Tea</button></td>
+            <td><button onclick="incrementCount('specialTea')">+</button></td>
+            <td><span id="specialTeaCount">0</span></td>
+            <td>......................................... 25</td>
+        </tr>
+        <tr>
+            <td><b>Fast Food</b></td>
+        </tr>
+        <tr>
+            <td>Pav Bhaji</button></td>
+            <td><button onclick="incrementCount('pavBhaji')">+</button></td>
+            <td><span id="pavBhajiCount">0</span></td>
+            <td>......................................... 70</td>
+        </tr>
+        <tr>
+            <td>Jain Pav Bhaji</button></td>
+            <td><button onclick="incrementCount('jainPavBhaji')">+</button></td>
+            <td><span id="jainPavBhajiCount">0</span></td>
+            <td>......................................... 80</td>
+        </tr>
+        <tr>
+            <td>Cheese Pav Bhaji</button></td>
+            <td><button onclick="incrementCount('cheesePavBhaji')">+</button></td>
+            <td><span id="cheesePavBhajiCount">0</span></td>
+            <td>......................................... 75</td>
+        </tr>
+        <tr>
+            <td>Masala Pav</button></td>
+            <td><button onclick="incrementCount('masalaPav')">+</button></td>
+            <td><span id="masalaPavCount">0</span></td>
+            <td>......................................... 60</td>
+        </tr>
+    </tr>
+    <tr>
+        <td>Extra pav</button></td>
+        <td><button onclick="incrementCount('extraPav')">+</button></td>
+        <td><span id="extraPavCount">0</span></td>
+        <td>......................................... 10</td>
+    </tr>
+    <tr>
+        <td>Tava Pulao</button></td>
+        <td><button onclick="incrementCount('tavaPulao')">+</button></td>
+        <td><span id="tavaPulaoCount">0</span></td>
+        <td>......................................... 80</td>
+    </tr>
+    <tr>
+        <td>Aalo Paratha</button></td>
+        <td><button onclick="incrementCount('aaloParatha')">+</button></td>
+        <td><span id="aaloParathaCount">0</span></td>
+        <td>......................................... 45</td>
+    </tr>
+    <tr>
+        <td>Paneer Paratha</button></td>
+        <td><button onclick="incrementCount('paneerParatha')">+</button></td>
+        <td><span id="paneerParathaCount">0</span></td>
+        <td>......................................... 65</td>
+    </tr>
+    <tr>
+        <td><b>Pizza</b></td>
+    </tr>
+    <tr>
+        <td>Veg Pizza</button></td>
+        <td><button onclick="incrementCount('vegPizza')">+</button></td>
+        <td><span id="vegPizzaCount">0</span></td>
+        <td>......................................... 50</td>
+    </tr>
+    <tr>
+        <td>Jain Pizza (half)</button></td>
+        <td><button onclick="incrementCount('jainPizza')">+</button></td>
+        <td><span id="jainPizzaCount">0</span></td>
+        <td>......................................... 35</td>
+    </tr>
+    <tr>
+        <td>Only Cheese Pizza</button></td>
+        <td><button onclick="incrementCount('onlyCheesePizza')">+</button></td>
+        <td><span id="onlyCheesePizzaCount">0</span></td>
+        <td>......................................... 100</td>
+    </tr>
+    <tr>
+        <td>Moshrum Pizza</button></td>
+        <td><button onclick="incrementCount('moshrumPizza')">+</button></td>
+        <td><span id="moshrumPizzaCount">0</span></td>
+        <td>......................................... 50</td>
+    </tr>
+
+    <tr>
+        <td><b>Franki</b></td>
+    </tr>
+    <tr>
+        <td>Veg Frankie</button></td>
+        <td><button onclick="incrementCount('vegFrankie')">+</button></td>
+        <td><span id="vegFrankieCount">0</span></td>
+        <td>......................................... 54</td>
+    </tr>
+    <tr>
+        <td>Schezwan Frankie</button></td>
+        <td><button onclick="incrementCount('schezwanFrankie')">+</button></td>
+        <td><span id="schezwanFrankieCount">0</span></td>
+        <td>......................................... 55</td>
+    </tr>
+    <tr>
+        <td>Noodle Frankie</button></td>
+        <td><button onclick="incrementCount('noodleFrankie')">+</button></td>
+        <td><span id="noodleFrankieCount">0</span></td>
+        <td>......................................... 50</td>
+    </tr>
+    <tr>
+        <td>Paneer Frankie</button></td>
+        <td><button onclick="incrementCount('paneerFrankie')">+</button></td>
+        <td><span id="paneerFrankieCount">0</span></td>
+        <td>......................................... 55</td>
+        <TR><td><b>Grilled</b></td></TR>
+</tr>
+<tr>
+    <td>Veg Sandwich</button></td>
+    <td><button onclick="incrementCount('vegSandwich')">+</button></td>
+    <td><span id="vegSandwichCount">0</span></td>
+    <td>......................................... 54</td>
+</tr>
+<tr>
+    <td>Veg Grilled Sandwich</button></td>
+    <td><button onclick="incrementCount('vegGrilledSandwich')">+</button></td>
+    <td><span id="vegGrilledSandwichCount">0</span></td>
+    <td>......................................... 55</td>
+</tr>
+<tr>
+    <td>Chilli Cheese Toast</button></td>
+    <td><button onclick="incrementCount('chilliCheeseToast')">+</button></td>
+    <td><span id="chilliCheeseToastCount">0</span></td>
+    <td>......................................... 50</td>
+</tr>
+<tr>
+    <td>Toast Sandwich</button></td>
+    <td><button onclick="incrementCount('toastSandwich')">+</button></td>
+    <td><span id="toastSandwichCount">0</span></td>
+    <td>......................................... 55</td>
+</tr>
+<tr>
+    <td>Bread Butter</button></td>
+    <td><button onclick="incrementCount('breadButter')">+</button></td>
+    <td><span id="breadButterCount">0</span></td>
+    <td>......................................... 65</td>
+</tr>
+<tr>
+    <td>Only cheese Sandwich</button></td>
+    <td><button onclick="incrementCount('onlyCheeseSandwich')">+</button></td>
+    <td><span id="onlyCheeseSandwichCount">0</span></td>
+    <td>......................................... 55</td>
+</tr>
+<tr>
+    <td>Only cheese Toast</button></td>
+    <td><button onclick="incrementCount('onlyCheeseToast')">+</button></td>
+    <td><span id="onlyCheeseToastCount">0</span></td>
+    <td>......................................... 55</td>
+</tr>
+
+
+    <tr>
+        <td>Cheese Frankie</button></td>
+        <td><button onclick="incrementCount('cheeseFrankie')">+</button></td>
+        <td><span id="cheeseFrankieCount">0</span></td>
+        <td>......................................... 65</td>
+    </tr>
+
+
+
+    </table>
+    <br><br>
+    <label>@ TIME:</label><input type="time" id="time" required>
+    
+        <br><br>AMOUNT TO BE PAID : <span id="totalAmount">0</span><br><br>
+        <input type="button" value="ORDER!" onclick="ele()">
+    
+</div>
+
+<script>
+    function ele() {
+        var time = document.getElementById('time').value;
+        if (time === "") {
+            alert("ENTER TIME!")
+        } else {
+            alert("YOUR FOOD IS BEING PREPARED");
+        }
+    }
+
+    function incrementCount(item) {
+        var countSpan = document.getElementById(item + 'Count');
+        var count = parseInt(countSpan.innerText);
+        countSpan.innerText = count + 1;
+
+        
+        var totalAmount = calculateTotalAmount();
+        document.getElementById('totalAmount').innerText = totalAmount;
+    }
+
+    function calculateTotalAmount() {
+    var total = 0;
+    
+    var prices = {
+        lunchFull: 50,
+        lunchHalf: 35,
+        chineseComboLunch: 100,
+        puriBhaji: 60,
+        dalRice: 50,
+        coldCoffee: 60,
+        oreoShake: 60,
+        chikkuShake: 50,
+        mangoShake: 75,
+        coffee: 15,
+        tea: 10,
+        specialTea: 25,
+        pavBhaji: 70,
+        jainPavBhaji: 80,
+        cheesePavBhaji: 75,
+        masalaPav: 60,
+        extraPav: 10,
+        tavaPulao: 80,
+        aaloParatha: 45,
+        paneerParatha: 65,
+        vegPizza: 50,
+        jainPizza: 35,
+        onlyCheesePizza: 100,
+        moshrumPizza: 50,
+        vegFrankie: 54,
+        schezwanFrankie: 55,
+        noodleFrankie: 50,
+        paneerFrankie: 55,
+        cheeseFrankie: 65,
+        vegSandwich: 54,
+        vegGrilledSandwich: 55,
+        chilliCheeseToast: 50,
+        toastSandwich: 55,
+        breadButter: 65,
+        onlyCheeseSandwich: 55,
+        onlyCheeseToast: 55,
+        
+    };
+
+    
+    total += parseInt(document.getElementById('lunchFullCount').innerText) * prices.lunchFull;
+    total += parseInt(document.getElementById('lunchHalfCount').innerText) * prices.lunchHalf;
+    total += parseInt(document.getElementById('chineseComboCount').innerText) * prices.chineseComboLunch;
+    total += parseInt(document.getElementById('puriBhajiCount').innerText) * prices.puriBhaji;
+    total += parseInt(document.getElementById('dalRiceCount').innerText) * prices.dalRice;
+    total += parseInt(document.getElementById('coldCoffeeCount').innerText) * prices.coldCoffee;
+    total += parseInt(document.getElementById('oreoShakeCount').innerText) * prices.oreoShake;
+    total += parseInt(document.getElementById('chikkuShakeCount').innerText) * prices.chikkuShake;
+    total += parseInt(document.getElementById('mangoShakeCount').innerText) * prices.mangoShake;
+    total += parseInt(document.getElementById('coffeeCount').innerText) * prices.coffee;
+    total += parseInt(document.getElementById('teaCount').innerText) * prices.tea;
+    total += parseInt(document.getElementById('specialTeaCount').innerText) * prices.specialTea;
+    total += parseInt(document.getElementById('pavBhajiCount').innerText) * prices.pavBhaji;
+    total += parseInt(document.getElementById('jainPavBhajiCount').innerText) * prices.jainPavBhaji;
+    total += parseInt(document.getElementById('cheesePavBhajiCount').innerText) * prices.cheesePavBhaji;
+    total += parseInt(document.getElementById('masalaPavCount').innerText) * prices.masalaPav;
+    total += parseInt(document.getElementById('extraPavCount').innerText) * prices.extraPav;
+    total += parseInt(document.getElementById('tavaPulaoCount').innerText) * prices.tavaPulao;
+    total += parseInt(document.getElementById('aaloParathaCount').innerText) * prices.aaloParatha;
+    total += parseInt(document.getElementById('paneerParathaCount').innerText) * prices.paneerParatha;
+    total += parseInt(document.getElementById('vegPizzaCount').innerText) * prices.vegPizza;
+    total += parseInt(document.getElementById('jainPizzaCount').innerText) * prices.jainPizza;
+    total += parseInt(document.getElementById('onlyCheesePizzaCount').innerText) * prices.onlyCheesePizza;
+    total += parseInt(document.getElementById('moshrumPizzaCount').innerText) * prices.moshrumPizza;
+    total += parseInt(document.getElementById('vegFrankieCount').innerText) * prices.vegFrankie;
+    total += parseInt(document.getElementById('schezwanFrankieCount').innerText) * prices.schezwanFrankie;
+    total += parseInt(document.getElementById('noodleFrankieCount').innerText) * prices.noodleFrankie;
+    total += parseInt(document.getElementById('paneerFrankieCount').innerText) * prices.paneerFrankie;
+    total += parseInt(document.getElementById('cheeseFrankieCount').innerText) * prices.cheeseFrankie;
+    total += parseInt(document.getElementById('vegSandwichCount').innerText) * prices.vegSandwich;
+    total += parseInt(document.getElementById('vegGrilledSandwichCount').innerText) * prices.vegGrilledSandwich;
+    total += parseInt(document.getElementById('chilliCheeseToastCount').innerText) * prices.chilliCheeseToast;
+    total += parseInt(document.getElementById('toastSandwichCount').innerText) * prices.toastSandwich;
+    total += parseInt(document.getElementById('breadButterCount').innerText) * prices.breadButter;
+    total += parseInt(document.getElementById('onlyCheeseSandwichCount').innerText) * prices.onlyCheeseSandwich;
+    total += parseInt(document.getElementById('onlyCheeseToastCount').innerText) * prices.onlyCheeseToast;
+
+    return total;
+}
+
+
+    function ele() {
+        var time = document.getElementById('time').value;
+        if (time === "") {
+            alert("ENTER TIME!");
+        } else {
+            var summary = "Your order summary:\n\n";
+            var items = document.querySelectorAll('span[id$="Count"]');
+            items.forEach(function(item) {
+                var itemName = item.id.replace('Count', '');
+                var quantity = parseInt(item.innerText);
+                if (quantity > 0) {
+                    summary += itemName + ": " + quantity + "\n";
+                }
+            });
+            summary += "\nTotal amount to be paid: Rs" + calculateTotalAmount();
+            alert(summary);
+        }
+    }
+
+
+</script>
+</body>
+</html>

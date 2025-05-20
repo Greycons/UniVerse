@@ -1,0 +1,53 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Permission Requests</h1>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Request Permission</h5>
+                    <form action="/api/permissions/request" method="POST" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="permissionType" class="form-label">Permission Type</label>
+                            <select class="form-select" id="permissionType" name="type" required>
+                                <option value="">Select type</option>
+                                <option value="leave">Leave Request</option>
+                                <option value="outing">Outing Permission</option>
+                                <option value="event">Event Permission</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="endDate" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="endDate" name="endDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="reason" class="form-label">Reason</label>
+                            <textarea class="form-control" id="reason" name="reason" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">My Requests</h5>
+                    <div class="list-group" id="permissionRequests">
+                        <!-- Permission requests will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %> 

@@ -1,0 +1,60 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Alumni Connect</h1>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Alumni Directory</h5>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search alumni..." id="alumniSearch">
+                        <button class="btn btn-outline-secondary" type="button">Search</button>
+                    </div>
+                    <div class="row" id="alumniList">
+                        <!-- Alumni cards will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Upcoming Events</h5>
+                    <div class="list-group" id="alumniEvents">
+                        <!-- Alumni events will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Join Alumni Network</h5>
+                    <form action="/api/alumni/register" method="POST" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label for="graduationYear" class="form-label">Graduation Year</label>
+                            <input type="number" class="form-control" id="graduationYear" name="graduationYear" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="currentCompany" class="form-label">Current Company</label>
+                            <input type="text" class="form-control" id="currentCompany" name="currentCompany">
+                        </div>
+                        <div class="mb-3">
+                            <label for="position" class="form-label">Position</label>
+                            <input type="text" class="form-control" id="position" name="position">
+                        </div>
+                        <div class="mb-3">
+                            <label for="linkedin" class="form-label">LinkedIn Profile</label>
+                            <input type="url" class="form-control" id="linkedin" name="linkedin">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Register as Alumni</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %> 
