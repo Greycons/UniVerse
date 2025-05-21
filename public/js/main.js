@@ -58,3 +58,21 @@ function handleApiError(error) {
     console.error('API Error:', error);
     showFlashMessage(error.message || 'An error occurred', 'danger');
 } 
+
+
+/* Add this to main.js */
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        
+        if (backToTop) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+        }
+    });
